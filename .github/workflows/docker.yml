@@ -5,9 +5,10 @@ on:
 
 jobs:
   build:
-#    strategy:
-#      matrix:
-#        platform: [ linux/amd64, linux/arm64 ]
+    continue-on-error: true
+    strategy:
+      matrix:
+        platform: [ linux/amd64, linux/arm64, linux/arm/v7 ]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -32,9 +33,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build the Docker image
-        run: docker build -t nicolaswadoux/joke-app:latest .
-#      - name: Build the Docker image
-#        run: docker build --platform ${{ matrix.platform }} -t joke-app .
+        run: docker build --platform ${{ matrix.platform }} -t nicolaswadoux/joke-app:latest .
 
       - name: Push the Docker image
         run: docker push nicolaswadoux/joke-app:latest
