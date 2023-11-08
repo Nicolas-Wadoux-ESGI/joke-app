@@ -1,7 +1,8 @@
 FROM node:16 AS builder
 WORKDIR "/app"
+COPY package.json package-lock.json ./
+RUN npm install
 COPY . .
-RUN npm i
 RUN npm run build
 RUN npm prune --production
 FROM node:16-alpine AS production
