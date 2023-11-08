@@ -12,18 +12,18 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Cache Docker layers
-        uses: docker/build-push-action@v2
-        with:
-          context: .
-          push: false
-          labels: |
-            com.github.actions.name=docker
-            com.github.actions.description=Build and push Docker images
-            com.github.actions.icon=docker
-            com.github.actions.color=blue
-          platforms: ${{ matrix.platform }}
-          builder: auto
+#      - name: Cache Docker layers
+#        uses: docker/build-push-action@v2
+#        with:
+#          context: .
+#          push: false
+#          labels: |
+#            com.github.actions.name=docker
+#            com.github.actions.description=Build and push Docker images
+#            com.github.actions.icon=docker
+#            com.github.actions.color=blue
+#          platforms: ${{ matrix.platform }}
+#          builder: auto
 
       - name: Login to DockerHub
         uses: docker/login-action@v1
