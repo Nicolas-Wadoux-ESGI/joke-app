@@ -32,7 +32,7 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build the Docker image
-        run: docker build -t joke-app .
+        run: docker build -t nicolaswadoux/joke-app:latest .
 #      - name: Build the Docker image
 #        run: docker build --platform ${{ matrix.platform }} -t joke-app .
 
