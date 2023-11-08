@@ -37,4 +37,4 @@ jobs:
 #        run: docker build --platform ${{ matrix.platform }} -t joke-app .
 
       - name: Push the Docker image
-        run: docker push joke-app
+        run: docker image push nicolaswadoux/joke-app:latest
